@@ -17,7 +17,7 @@ namespace Daycake
     public partial class FormPedido : Form
     {
         MySqlConnection Conexao;
-        private string data_source = "datasource=localhost;username=root;password=1007;database=Daycake";
+        private string data_source = "datasource=localhost;username=root;password=;database=Daycake";
         public int? id_pedido_selecionado = null;
 
         List<ClienteItem> ListaClientes = new List<ClienteItem>();
@@ -335,7 +335,7 @@ namespace Daycake
 
             AutoCompleteStringCollection nomes = new AutoCompleteStringCollection();
 
-            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost; username=root; password=1007; database = daycake"))
+            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=;database=daycake"))
             {
                 try
                 {
@@ -404,7 +404,7 @@ namespace Daycake
 
             CarregarCliente();
 
-            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
             string query = "SELECT nome FROM Produto";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -447,7 +447,7 @@ namespace Daycake
             try
             {
 
-                using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=1007;database=daycake"))
+                using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=;database=daycake"))
                 {
                     conexao.Open();
                     MySqlCommand cmd = new MySqlCommand();
@@ -456,12 +456,15 @@ namespace Daycake
                     if (id_pedido_selecionado == null)
                     {
                         cmd.CommandText =
-                            "INSERT pedido SET clienteid = @clienteid, data_pedido = @data_pedido, data_entrega = @data_entrega, valor = @valor, " +
-                            "tipo_de_doce = @tipoDoce, descricao = @descricao, forma_pagamento = @forma_pagamento, status = @status " +
-                            "WHERE idPedido = @idPedido";
+                            "INSERT INTO pedido (clienteid, data_pedido, data_entrega, valor, tipo_de_doce, descricao, forma_pagamento, status) " +
+                            "VALUES (@clienteid, @data_pedido, @data_entrega, @valor, @tipo_doce, @descricao, @forma_pagamento, @status)";
 
+                        ClienteItem clienteItem = (ClienteItem)cbxNomeCliente.SelectedItem;
+                        int id = clienteItem.IDCliente;
 
-                        cmd.Parameters.AddWithValue("@clienteid", clienteId);
+                        //MessageBox.Show("ID do cliente: " + id);
+
+                        cmd.Parameters.AddWithValue("@clienteid", id);
                         cmd.Parameters.AddWithValue("@data_pedido", mtbDataPedido.Text);
                         cmd.Parameters.AddWithValue("@data_entrega", mtbDataEntrega.Text);
                         cmd.Parameters.AddWithValue("@valor", decimal.Parse(txtValor.Text,
@@ -594,7 +597,7 @@ namespace Daycake
 
         private void cbxTipoDoce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
             string produtoSelecionado = cbxTipoDoce.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(produtoSelecionado))
