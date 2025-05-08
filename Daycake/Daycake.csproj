@@ -120,6 +120,7 @@
     <Compile Include="Menu%28Layout%29.Designer.cs">
       <DependentUpon>Menu%28Layout%29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedido.cs" />
     <Compile Include="Pedidos%28Layout%29.cs">
       <SubType>Form</SubType>
     </Compile>

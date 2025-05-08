@@ -287,7 +287,7 @@
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 2F));
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.9F));
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.1F));
-            this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tblPanel6.Controls.Add(this.btnAtualizarCliente, 3, 0);
             this.tblPanel6.Controls.Add(this.btnCadastrarCliente, 4, 0);
             this.tblPanel6.Controls.Add(this.btnNovo, 1, 0);
@@ -306,7 +306,7 @@
             this.btnAtualizarCliente.BackColor = System.Drawing.Color.White;
             this.btnAtualizarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnAtualizarCliente.Location = new System.Drawing.Point(598, 14);
+            this.btnAtualizarCliente.Location = new System.Drawing.Point(597, 14);
             this.btnAtualizarCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAtualizarCliente.Name = "btnAtualizarCliente";
             this.btnAtualizarCliente.Size = new System.Drawing.Size(80, 27);
@@ -322,7 +322,7 @@
             this.btnCadastrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(686, 14);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(685, 14);
             this.btnCadastrarCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(81, 28);
@@ -552,7 +552,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel2.Controls.Add(this.btnBuscar, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtBuscar, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblBuscar, 0, 0);
@@ -585,7 +585,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscar.Location = new System.Drawing.Point(3, 37);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(581, 14);
+            this.txtBuscar.Size = new System.Drawing.Size(580, 14);
             this.txtBuscar.TabIndex = 5;
             // 
             // lblBuscar
