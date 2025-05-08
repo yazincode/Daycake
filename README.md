@@ -12,12 +12,12 @@
 
 <h2>🍰 Funcionalidades</h2>
 <ul>
-  <li>📋 Cadastro de clientes (nome, telefone, endereço etc.)</li>
-  <li>🧁 Cadastro de produtos (bolos, doces, tortas etc.)</li>
-  <li>🔁 Edição e exclusão de registros com segurança</li>
-  <li>🔎 Busca e visualização de informações com facilidade</li>
-  <li>📂 Interface intuitiva com organização por categorias</li>
-  <li>💾 Integração com banco de dados MySQL</li>
+  <li> Cadastro de clientes (nome, telefone, endereço etc.)</li>
+  <li> Cadastro de produtos (bolos, doces, tortas etc.)</li>
+  <li> Edição e exclusão de registros com segurança</li>
+  <li> Busca e visualização de informações com facilidade</li>
+  <li> Interface intuitiva com organização por categorias</li>
+  <li> Integração com banco de dados MySQL</li>
 </ul>
 
 <hr>
@@ -66,7 +66,8 @@
 <hr>
 
 <h2>👩‍💻 Desenvolvido por</h2>
-<p>
-  <strong>@yazincode</strong> com carinho e código 🍫<br>
-  <a href="https://github.com/yazincode" target="_blank">GitHub</a>
-</p>
+<ul>
+  <li> <a href="https://github.com/yazincode" target="_blank">@yazincode</a></li>
+  <li> <a href="https://github.com/zbrwna" target="_blank">@zbrwna</a></li>
+  <li> <a href="https://github.com/alinnecostas" target="_blank">@alinnecostas</a></li>
+</ul>
