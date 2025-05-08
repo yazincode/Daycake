@@ -70,5 +70,5 @@
   <li> <a href="https://github.com/yazincode" target="_blank">@yazincode</a></li>
   <li> <a href="https://github.com/zbrwna" target="_blank">@zbrwna</a></li>
   <li> <a href="https://github.com/alinnecostas" target="_blank">@alinnecostas</a></li>
-  <li> <a hrel="https://github.com/andrezap6" target="_blanck">@andrezap6</a></li>
+  <li> <a href="https://github.com/andrezap6" target="_blank">@andrezap6</a></li>
 </ul>
