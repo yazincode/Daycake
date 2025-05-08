@@ -71,21 +71,20 @@ namespace Daycake
 
                 while (reader.Read())
                 {
-                    string[] row =
-                    {
-                        reader.GetInt32(1).ToString(), // id pedido
-                        reader.GetInt32(2).ToString(), // id cliente
-                        reader.GetString(3), // nome cliente
-                        reader.GetString(4), // data pedido
-                        reader.GetString(5), // data entrega
-                        reader.GetString(6), // valor
-                        reader.GetString(7), // tipo doce
-                        reader.GetString(8), // descrição
-                        reader.GetString(9), // forma pagamento
-                        reader.GetString(10), // status
-                    };
+                    string[] lin = new string[10];
+                    //idPedido, clienteid, nomeCliente, data_pedido, data_entrega, valor, tipo_de_doce, descricao, forma_pagamento, status
+                    lin[0] = reader["idPedido"].ToString();
+                    lin[1] = reader["clienteid"].ToString();
+                    lin[2] = reader["nomeCliente"].ToString();
+                    lin[3] = reader["data_pedido"].ToString();
+                    lin[4] = reader["data_entrega"].ToString();
+                    lin[5] = reader["valor"].ToString();
+                    lin[6] = reader["tipo_de_doce"].ToString();
+                    lin[7] = reader["descricao"].ToString();
+                    lin[8] = reader["forma_pagamento"].ToString();
+                    lin[9] = reader["status"].ToString();
 
-                    var linha_list_view = new ListViewItem(row);
+                    var linha_list_view = new ListViewItem(lin);
                     lstListaPedidos.Items.Add(linha_list_view);
                 }
 
@@ -199,20 +198,20 @@ namespace Daycake
 
                 while (reader.Read())
                 {
-                    string[] row =
-                    {
-                        reader.GetInt32(1).ToString(), // id pedido
-                        reader.GetInt32(2).ToString(), // id cliente
-                        reader.GetString(3), // nome cliente
-                        reader.GetString(4), // data pedido
-                        reader.GetString(5), // data entrega
-                        reader.GetString(6), // valor
-                        reader.GetString(7), // tipo doce
-                        reader.GetString(8), // descrição
-                        reader.GetString(9), // forma pagamento
-                        reader.GetString(10), // status
-                       };
-                    var linha_list_view = new ListViewItem(row);
+                    string[] lin = new string[10];
+                    //idPedido, clienteid, nomeCliente, data_pedido, data_entrega, valor, tipo_de_doce, descricao, forma_pagamento, status
+                    lin[0] = reader["idPedido"].ToString();
+                    lin[1] = reader["clienteid"].ToString();
+                    lin[2] = reader["nomeCliente"].ToString();
+                    lin[3] = reader["data_pedido"].ToString();
+                    lin[4] = reader["data_entrega"].ToString();
+                    lin[5] = reader["valor"].ToString();
+                    lin[6] = reader["tipo_de_doce"].ToString();
+                    lin[7] = reader["descricao"].ToString();
+                    lin[8] = reader["forma_pagamento"].ToString();
+                    lin[9] = reader["status"].ToString();
+
+                    var linha_list_view = new ListViewItem(lin);
                     lstListaPedidos.Items.Add(linha_list_view);
                 }
 
