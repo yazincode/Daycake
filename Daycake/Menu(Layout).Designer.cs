@@ -29,22 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mnsMenu = new System.Windows.Forms.MenuStrip();
             this.mnsCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsAgendarPedido = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsProducao = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsAdicionarProduto = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnsMenu = new System.Windows.Forms.MenuStrip();
-            this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.mnsStatus = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnsSair = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.mnsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.mnsMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-72, -121);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(434, 398);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(12, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(286, 203);
+            this.panel1.TabIndex = 3;
+            // 
+            // mnsMenu
+            // 
+            this.mnsMenu.BackColor = System.Drawing.Color.Transparent;
+            this.mnsMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mnsMenu.Dock = System.Windows.Forms.DockStyle.None;
+            this.mnsMenu.Font = new System.Drawing.Font("MS PGothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mnsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnsCliente,
+            this.mnsPedidos,
+            this.mnsProducao,
+            this.mnsStatus,
+            this.mnsSair});
+            this.mnsMenu.Location = new System.Drawing.Point(0, 0);
+            this.mnsMenu.Name = "mnsMenu";
+            this.mnsMenu.Size = new System.Drawing.Size(338, 24);
+            this.mnsMenu.TabIndex = 0;
+            this.mnsMenu.Text = "menuStrip1";
+            this.mnsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnsMenu_ItemClicked);
             // 
             // mnsCliente
             // 
@@ -100,62 +141,29 @@
             this.mnsAdicionarProduto.Text = "Adicionar Produto";
             this.mnsAdicionarProduto.Click += new System.EventHandler(this.mnsAdicionarProduto_Click);
             // 
-            // mnsMenu
+            // mnsStatus
             // 
-            this.mnsMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mnsMenu.BackColor = System.Drawing.Color.Transparent;
-            this.mnsMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mnsMenu.Dock = System.Windows.Forms.DockStyle.None;
-            this.mnsMenu.Font = new System.Drawing.Font("MS PGothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mnsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mnsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnsCliente,
-            this.mnsPedidos,
-            this.mnsProducao,
-            this.statusToolStripMenuItem});
-            this.mnsMenu.Location = new System.Drawing.Point(12, 20);
-            this.mnsMenu.Name = "mnsMenu";
-            this.mnsMenu.Size = new System.Drawing.Size(338, 24);
-            this.mnsMenu.TabIndex = 0;
-            this.mnsMenu.Text = "menuStrip1";
-            this.mnsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnsMenu_ItemClicked);
+            this.mnsStatus.ForeColor = System.Drawing.Color.Black;
+            this.mnsStatus.Name = "mnsStatus";
+            this.mnsStatus.Size = new System.Drawing.Size(64, 20);
+            this.mnsStatus.Text = "Status";
+            this.mnsStatus.Click += new System.EventHandler(this.statusToolStripMenuItem_Click);
             // 
-            // statusToolStripMenuItem
+            // mnsSair
             // 
-            this.statusToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
-            this.statusToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.statusToolStripMenuItem.Text = "Status";
-            this.statusToolStripMenuItem.Click += new System.EventHandler(this.statusToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-72, -121);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(434, 398);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 203);
-            this.panel1.TabIndex = 3;
+            this.mnsSair.ForeColor = System.Drawing.Color.IndianRed;
+            this.mnsSair.Name = "mnsSair";
+            this.mnsSair.Size = new System.Drawing.Size(46, 20);
+            this.mnsSair.Text = "Sair";
+            this.mnsSair.Click += new System.EventHandler(this.mnsSair_Click_1);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.mnsMenu);
-            this.panel2.Location = new System.Drawing.Point(317, 24);
+            this.panel2.Location = new System.Drawing.Point(304, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(532, 59);
+            this.panel2.Size = new System.Drawing.Size(689, 40);
             this.panel2.TabIndex = 4;
             // 
             // FormMenu
@@ -182,10 +190,10 @@
             this.Text = "Menu";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.FormMenu_Load);
-            this.mnsMenu.ResumeLayout(false);
-            this.mnsMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.mnsMenu.ResumeLayout(false);
+            this.mnsMenu.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -193,16 +201,17 @@
         }
 
         #endregion
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MenuStrip mnsMenu;
         private System.Windows.Forms.ToolStripMenuItem mnsCliente;
         private System.Windows.Forms.ToolStripMenuItem mnsCadastro;
         private System.Windows.Forms.ToolStripMenuItem mnsPedidos;
         private System.Windows.Forms.ToolStripMenuItem mnsAgendarPedido;
         private System.Windows.Forms.ToolStripMenuItem mnsProducao;
         private System.Windows.Forms.ToolStripMenuItem mnsAdicionarProduto;
-        private System.Windows.Forms.MenuStrip mnsMenu;
-        private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem mnsStatus;
+        private System.Windows.Forms.ToolStripMenuItem mnsSair;
         private System.Windows.Forms.Panel panel2;
     }
 }

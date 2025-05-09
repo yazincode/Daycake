@@ -71,5 +71,15 @@ namespace Daycake
         {
 
         }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mnsSair_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
