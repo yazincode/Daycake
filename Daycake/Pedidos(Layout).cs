@@ -17,7 +17,7 @@ namespace Daycake
     public partial class FormPedido : Form
     {
         MySqlConnection Conexao;
-        private string data_source = "datasource=localhost;username=root;password=;database=Daycake";
+        private string data_source = "datasource=localhost;username=root;password=1007;database=Daycake";
         public int? id_pedido_selecionado = null;
 
         List<ClienteItem> ListaClientes = new List<ClienteItem>();
@@ -343,7 +343,7 @@ namespace Daycake
 
             AutoCompleteStringCollection nomes = new AutoCompleteStringCollection();
 
-            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=;database=daycake"))
+            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=1007;database=daycake"))
             {
                 try
                 {
@@ -412,7 +412,7 @@ namespace Daycake
 
             CarregarCliente();
 
-            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
             string query = "SELECT nome FROM Produto";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -603,7 +603,7 @@ namespace Daycake
 
         private void cbxTipoDoce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
             string produtoSelecionado = cbxTipoDoce.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(produtoSelecionado))

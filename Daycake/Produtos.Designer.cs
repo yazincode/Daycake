@@ -61,6 +61,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.tabControlProdutos.SuspendLayout();
             this.tabCadastroProdutos.SuspendLayout();
             this.tblPanelBaseProduto.SuspendLayout();
@@ -131,11 +132,12 @@
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 323F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Controls.Add(this.btnAdicionarProduto, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnVoltar, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnAtualizar, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 358);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -158,6 +160,7 @@
             this.btnAdicionarProduto.Text = "Adicionar Produto";
             this.btnAdicionarProduto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdicionarProduto.UseVisualStyleBackColor = false;
+            this.btnAdicionarProduto.Click += new System.EventHandler(this.btnAdicionarProduto_Click_1);
             // 
             // btnVoltar
             // 
@@ -358,7 +361,7 @@
             this.lblTempoPreparo.ForeColor = System.Drawing.Color.Black;
             this.lblTempoPreparo.Location = new System.Drawing.Point(3, 0);
             this.lblTempoPreparo.Name = "lblTempoPreparo";
-            this.lblTempoPreparo.Size = new System.Drawing.Size(106, 15);
+            this.lblTempoPreparo.Size = new System.Drawing.Size(107, 15);
             this.lblTempoPreparo.TabIndex = 35;
             this.lblTempoPreparo.Text = "Tempo de Preparo:";
             // 
@@ -443,19 +446,24 @@
             // 
             this.lstListaProdutos.BackColor = System.Drawing.Color.White;
             this.lstListaProdutos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.lstListaProdutos.FullRowSelect = true;
+            this.lstListaProdutos.GridLines = true;
             this.lstListaProdutos.HideSelection = false;
             this.lstListaProdutos.Location = new System.Drawing.Point(43, 83);
+            this.lstListaProdutos.MultiSelect = false;
             this.lstListaProdutos.Name = "lstListaProdutos";
             this.lstListaProdutos.Size = new System.Drawing.Size(753, 287);
             this.lstListaProdutos.TabIndex = 1;
             this.lstListaProdutos.UseCompatibleStateImageBehavior = false;
+            this.lstListaProdutos.View = System.Windows.Forms.View.Details;
+            this.lstListaProdutos.SelectedIndexChanged += new System.EventHandler(this.lstListaProdutos_SelectedIndexChanged);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
             this.tableLayoutPanel3.Controls.Add(this.btnBuscar, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtBuscar, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblBuscar, 0, 0);
@@ -477,6 +485,7 @@
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // txtBuscar
             // 
@@ -484,7 +493,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscar.Location = new System.Drawing.Point(3, 22);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(589, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(585, 20);
             this.txtBuscar.TabIndex = 5;
             // 
             // lblBuscar
@@ -496,6 +505,16 @@
             this.lblBuscar.Size = new System.Drawing.Size(98, 13);
             this.lblBuscar.TabIndex = 4;
             this.lblBuscar.Text = "Digite a sua busca:";
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(442, 3);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(141, 28);
+            this.btnAtualizar.TabIndex = 40;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // Produtos
             // 
@@ -512,6 +531,7 @@
             this.Name = "Produtos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos";
+            this.Load += new System.EventHandler(this.Produtos_Load);
             this.tabControlProdutos.ResumeLayout(false);
             this.tabCadastroProdutos.ResumeLayout(false);
             this.tblPanelBaseProduto.ResumeLayout(false);
@@ -570,5 +590,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
