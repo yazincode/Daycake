@@ -92,7 +92,6 @@
             this.mnsRecebimentos.Name = "mnsRecebimentos";
             this.mnsRecebimentos.Size = new System.Drawing.Size(245, 30);
             this.mnsRecebimentos.Text = "Recebimentos";
-            this.mnsRecebimentos.Click += new System.EventHandler(this.mnsRecebimentos_Click_1);
             // 
             // mnsProducao
             // 

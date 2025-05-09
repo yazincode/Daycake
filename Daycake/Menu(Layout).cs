@@ -49,21 +49,9 @@ namespace Daycake
             form.ShowDialog();
         }
 
-        private void mnsRecebimentos_Click(object sender, EventArgs e)
-        {
-            Recebimento form = new Recebimento();
-            form.ShowDialog();
-        }
-
         private void mnsAdicionarProduto_Click(object sender, EventArgs e)
         {
             Produtos form = new Produtos();
-            form.ShowDialog();
-        }
-
-        private void mnsRecebimentos_Click_1(object sender, EventArgs e)
-        {
-            Recebimento form = new Recebimento();
             form.ShowDialog();
         }
 
