@@ -39,9 +39,10 @@
             this.tblPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.lblNomeProduto = new System.Windows.Forms.Label();
             this.tblPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.mtbPreco = new System.Windows.Forms.MaskedTextBox();
+            this.lblNomeProduto = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.tblPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -58,7 +59,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.tabControlProdutos.SuspendLayout();
             this.tabCadastroProdutos.SuspendLayout();
             this.tblPanelBaseProduto.SuspendLayout();
@@ -218,16 +218,6 @@
             this.lblDescricao.TabIndex = 33;
             this.lblDescricao.Text = "Descrição:";
             // 
-            // lblNomeProduto
-            // 
-            this.lblNomeProduto.AutoSize = true;
-            this.lblNomeProduto.ForeColor = System.Drawing.Color.Black;
-            this.lblNomeProduto.Location = new System.Drawing.Point(43, 0);
-            this.lblNomeProduto.Name = "lblNomeProduto";
-            this.lblNomeProduto.Size = new System.Drawing.Size(89, 15);
-            this.lblNomeProduto.TabIndex = 34;
-            this.lblNomeProduto.Text = "Nome Produto:";
-            // 
             // tblPanel1
             // 
             this.tblPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -236,7 +226,7 @@
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tblPanel1.Controls.Add(this.txtNomeProduto, 1, 1);
             this.tblPanel1.Controls.Add(this.mtbPreco, 3, 1);
             this.tblPanel1.Controls.Add(this.lblNomeProduto, 1, 0);
@@ -250,20 +240,39 @@
             this.tblPanel1.Size = new System.Drawing.Size(781, 75);
             this.tblPanel1.TabIndex = 0;
             // 
+            // txtNomeProduto
+            // 
+            this.txtNomeProduto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNomeProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.txtNomeProduto.Location = new System.Drawing.Point(43, 33);
+            this.txtNomeProduto.Name = "txtNomeProduto";
+            this.txtNomeProduto.Size = new System.Drawing.Size(470, 23);
+            this.txtNomeProduto.TabIndex = 36;
+            // 
             // mtbPreco
             // 
             this.mtbPreco.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtbPreco.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.mtbPreco.Location = new System.Drawing.Point(539, 33);
+            this.mtbPreco.Location = new System.Drawing.Point(538, 33);
             this.mtbPreco.Name = "mtbPreco";
             this.mtbPreco.Size = new System.Drawing.Size(198, 23);
             this.mtbPreco.TabIndex = 32;
+            // 
+            // lblNomeProduto
+            // 
+            this.lblNomeProduto.AutoSize = true;
+            this.lblNomeProduto.ForeColor = System.Drawing.Color.Black;
+            this.lblNomeProduto.Location = new System.Drawing.Point(43, 0);
+            this.lblNomeProduto.Name = "lblNomeProduto";
+            this.lblNomeProduto.Size = new System.Drawing.Size(89, 15);
+            this.lblNomeProduto.TabIndex = 34;
+            this.lblNomeProduto.Text = "Nome Produto:";
             // 
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
             this.lblPreco.ForeColor = System.Drawing.Color.Black;
-            this.lblPreco.Location = new System.Drawing.Point(539, 0);
+            this.lblPreco.Location = new System.Drawing.Point(538, 0);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(40, 15);
             this.lblPreco.TabIndex = 30;
@@ -421,7 +430,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel3.Controls.Add(this.btnBuscar, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtBuscar, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblBuscar, 0, 0);
@@ -451,7 +460,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscar.Location = new System.Drawing.Point(3, 22);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(580, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(579, 20);
             this.txtBuscar.TabIndex = 5;
             // 
             // lblBuscar
@@ -463,15 +472,6 @@
             this.lblBuscar.Size = new System.Drawing.Size(98, 13);
             this.lblBuscar.TabIndex = 4;
             this.lblBuscar.Text = "Digite a sua busca:";
-            // 
-            // txtNomeProduto
-            // 
-            this.txtNomeProduto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNomeProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.txtNomeProduto.Location = new System.Drawing.Point(43, 33);
-            this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(471, 23);
-            this.txtNomeProduto.TabIndex = 36;
             // 
             // Produtos
             // 

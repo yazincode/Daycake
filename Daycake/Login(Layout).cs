@@ -173,7 +173,7 @@ namespace Daycake
 
         private bool ValidarLogin(string usuario, string senha)
         {
-            string conexaoString = "datasource=localhost;username=root;password=1007;database=daycake";
+            string conexaoString = "datasource=localhost;username=root;password=;database=daycake";
 
             using (MySqlConnection conexao = new MySqlConnection(conexaoString))
             {

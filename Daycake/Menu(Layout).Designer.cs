@@ -35,7 +35,6 @@
             this.mnsAgendarPedido = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsProducao = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsAdicionarProduto = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnsSair = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMenu = new System.Windows.Forms.MenuStrip();
             this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -79,7 +78,7 @@
             this.mnsAgendarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.mnsAgendarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
             this.mnsAgendarPedido.Name = "mnsAgendarPedido";
-            this.mnsAgendarPedido.Size = new System.Drawing.Size(180, 22);
+            this.mnsAgendarPedido.Size = new System.Drawing.Size(179, 22);
             this.mnsAgendarPedido.Text = "Agendar Pedido";
             this.mnsAgendarPedido.Click += new System.EventHandler(this.mnsAgendarPedido_Click);
             // 
@@ -101,14 +100,6 @@
             this.mnsAdicionarProduto.Text = "Adicionar Produto";
             this.mnsAdicionarProduto.Click += new System.EventHandler(this.mnsAdicionarProduto_Click);
             // 
-            // mnsSair
-            // 
-            this.mnsSair.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.mnsSair.Name = "mnsSair";
-            this.mnsSair.Size = new System.Drawing.Size(46, 20);
-            this.mnsSair.Text = "Sair";
-            this.mnsSair.Click += new System.EventHandler(this.mnsSair_Click);
-            // 
             // mnsMenu
             // 
             this.mnsMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -122,8 +113,7 @@
             this.mnsCliente,
             this.mnsPedidos,
             this.mnsProducao,
-            this.statusToolStripMenuItem,
-            this.mnsSair});
+            this.statusToolStripMenuItem});
             this.mnsMenu.Location = new System.Drawing.Point(12, 20);
             this.mnsMenu.Name = "mnsMenu";
             this.mnsMenu.Size = new System.Drawing.Size(338, 24);
@@ -209,7 +199,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnsAgendarPedido;
         private System.Windows.Forms.ToolStripMenuItem mnsProducao;
         private System.Windows.Forms.ToolStripMenuItem mnsAdicionarProduto;
-        private System.Windows.Forms.ToolStripMenuItem mnsSair;
         private System.Windows.Forms.MenuStrip mnsMenu;
         private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;

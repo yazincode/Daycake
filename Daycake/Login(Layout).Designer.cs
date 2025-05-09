@@ -182,7 +182,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.picLogo);
             this.panel1.Location = new System.Drawing.Point(46, 116);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(215, 106);
             this.panel1.TabIndex = 13;
@@ -206,6 +206,7 @@
             this.Name = "Login";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sair";
             ((System.ComponentModel.ISupportInitialize)(this.picSenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();

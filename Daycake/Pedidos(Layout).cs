@@ -17,7 +17,7 @@ namespace Daycake
     public partial class FormPedido : Form
     {
         MySqlConnection Conexao;
-        private string data_source = "datasource=localhost;username=root;password=1007;database=Daycake";
+        private string data_source = "datasource=localhost;username=root;password=;database=Daycake";
         public int? id_pedido_selecionado = null;
 
         List<ClienteItem> ListaClientes = new List<ClienteItem>();
@@ -33,7 +33,9 @@ namespace Daycake
             lstListaPedidos.Items.Clear();
 
             // lstListaPedidos.Columns.Add("ID Pedido", 100);
-            lstListaPedidos.Columns.Add("Cliente", 100);
+
+            lstListaPedidos.Columns.Add("ID Pedido", 100);
+            lstListaPedidos.Columns.Add("ID Cliente", 100);
             lstListaPedidos.Columns.Add("Nome do Cliente", 100);
             lstListaPedidos.Columns.Add("Data do Pedido", 100);
             lstListaPedidos.Columns.Add("Data da Entrega", 100);
@@ -112,6 +114,8 @@ namespace Daycake
             cbxNomeCliente.Text = "";
             mtbDataPedido.Text = "";
             mtbDataEntrega.Text = "";
+            txtQuantidade.Text = "";
+            cbxTipoDoce.Text = "";
             mtbValor.Text = "";
             txtDescricao.Text = "";
             lstTipoDoce.Items.Clear();
@@ -319,27 +323,73 @@ namespace Daycake
 
         private void lstListaPedidos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            ListView.SelectedListViewItemCollection itens_selecionados = lstListaPedidos.SelectedItems;
+            //ListView.SelectedListViewItemCollection itens_selecionados = lstListaPedidos.SelectedItems;
 
 
-            foreach (ListViewItem item in itens_selecionados)
+            //foreach (ListViewItem item in itens_selecionados)
+            //{
+            //    id_pedido_selecionado = Convert.ToInt32(item.SubItems[0].Text);
+            //    cbxNomeCliente.Text = item.SubItems[1].Text;
+            //    mtbDataPedido.Text = item.SubItems[2].Text;
+            //    mtbDataEntrega.Text = item.SubItems[3].Text;
+            //    mtbValor.Text = item.SubItems[4].Text;
+            //    txtDescricao.Text = item.SubItems[5].Text;
+            //    lstTipoDoce.Text = item.SubItems[6].Text;
+            //    cbxFormaPagamento.Text = item.SubItems[7].Text;
+            //    cbxStatus.Text = item.SubItems[8].Text;
+
+            //}
+
+            //btnExcluirPedido.Visible = true; // Exibe o botão de exclusãoualizarPedido.Visible = true;
+
+            if (lstListaPedidos.SelectedItems.Count == 0)
+                return;
+
+            ListViewItem item = lstListaPedidos.SelectedItems[0];
+
+            try
             {
                 id_pedido_selecionado = Convert.ToInt32(item.SubItems[0].Text);
-                cbxNomeCliente.Text = item.SubItems[1].Text;
-                mtbDataPedido.Text = item.SubItems[2].Text;
-                mtbDataEntrega.Text = item.SubItems[3].Text;
-                mtbValor.Text = item.SubItems[4].Text;
-                txtDescricao.Text = item.SubItems[5].Text;
-                lstTipoDoce.Text = item.SubItems[6].Text;
-                cbxFormaPagamento.Text = item.SubItems[7].Text;
-                cbxStatus.Text = item.SubItems[8].Text;
+                cbxNomeCliente.Text = item.SubItems[2].Text;  // Nome do cliente (índice 2)
+                mtbDataPedido.Text = item.SubItems[3].Text;   // Data pedido (índice 3)
+                mtbDataEntrega.Text = item.SubItems[4].Text;  // Data entrega (índice 4)
+                mtbValor.Text = item.SubItems[5].Text;        // Valor (índice 5)
+                txtDescricao.Text = item.SubItems[7].Text;    // Descrição (índice 7)
+                cbxFormaPagamento.Text = item.SubItems[8].Text; // Forma pagamento (índice 8)
+                cbxStatus.Text = item.SubItems[9].Text;       // Status (índice 9)
 
+                // Carrega os tipos de doces
+                CarregarTiposDoces(item.SubItems[6].Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar pedido: {ex.Message}");
             }
 
-            btnExcluirPedido.Visible = true; // Exibe o botão de exclusãoualizarPedido.Visible = true;
+            btnExcluirPedido.Visible = true;
+            btnAtualizarPedido.Visible = true;
         }
-        
 
+        private void CarregarTiposDoces(string tiposDoces)
+        {
+            lstTipoDoce.Items.Clear();
+
+            if (string.IsNullOrEmpty(tiposDoces))
+                return;
+
+            string[] doces = tiposDoces.Split(';');
+            foreach (string doce in doces)
+            {
+                string[] partes = doce.Trim().Split('-');
+                if (partes.Length >= 3)
+                {
+                    ListViewItem item = new ListViewItem(partes[0].Trim());
+                    item.SubItems.Add(partes[1].Trim()); // Preço
+                    item.SubItems.Add(partes[2].Trim()); // Quantidade
+                    lstTipoDoce.Items.Add(item);
+                }
+            }
+        }
 
 
 
@@ -347,6 +397,37 @@ namespace Daycake
 
         private void CarregarCliente()
         {
+            //ListaClientes.Clear();
+            //cbxNomeCliente.Items.Clear();
+
+            //try
+            //{
+            //    using (var conexao = new MySqlConnection(data_source))
+            //    {
+            //        conexao.Open();
+            //        string sql = "SELECT idCliente, nome FROM Cliente ORDER BY nome";
+
+            //        using (var cmd = new MySqlCommand(sql, conexao))
+            //        using (var reader = cmd.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                var cliente = new ClienteItem
+            //                {
+            //                    IDCliente = reader.GetInt32("idCliente"),
+            //                    nomeCliente = reader.GetString("nome")
+            //                };
+            //                ListaClientes.Add(cliente);
+            //                cbxNomeCliente.Items.Add(cliente);
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Erro ao carregar clientes: {ex.Message}");
+            //}
+
             ListaClientes.Clear();
             cbxNomeCliente.Items.Clear();
 
@@ -356,7 +437,7 @@ namespace Daycake
 
             AutoCompleteStringCollection nomes = new AutoCompleteStringCollection();
 
-            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=1007;database=daycake"))
+            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=;database=daycake"))
             {
                 try
                 {
@@ -394,6 +475,7 @@ namespace Daycake
                 }
             }
         }
+        
 
         private void FormPedido_Load(object sender, EventArgs e)
         {
@@ -425,7 +507,7 @@ namespace Daycake
 
             CarregarCliente();
 
-            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
             string query = "SELECT nome FROM Produto";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -495,7 +577,7 @@ namespace Daycake
 
                         if (!decimal.TryParse(mtbValor.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out valorDecimal))
                         {
-                            MessageBox.Show("Preço inválido. Digite um valor numérico, como 12.50.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Preço inválido. Digite um valor numérico, como 00.00.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         string valorFormatado = valorDecimal.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
@@ -603,19 +685,20 @@ namespace Daycake
         {
             if (lstTipoDoce.SelectedItems.Count == 1)
             {
+                txtQuantidade.Text = lstTipoDoce.SelectedItems[0].SubItems[2].Text;
                 txtQuantidade.Visible = true;
-
-                ListViewItem itemSelecionado = lstTipoDoce.SelectedItems[0];
-                txtQuantidade.Text = itemSelecionado.SubItems[2].Text;
-
                 txtQuantidade.Focus();
                 txtQuantidade.SelectAll();
+            }
+            else
+            {
+                txtQuantidade.Visible = false;
             }
         }
 
         private void cbxTipoDoce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
             string produtoSelecionado = cbxTipoDoce.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(produtoSelecionado))
@@ -696,17 +779,26 @@ namespace Daycake
 
             foreach (ListViewItem item in lstTipoDoce.Items)
             {
-                if (item.SubItems.Count >= 4 &&
-                    decimal.TryParse(item.SubItems[1].Text.Replace("", "").Trim(), out decimal preco) &&
+                if (item.SubItems.Count >= 3 &&
+                    decimal.TryParse(item.SubItems[1].Text.Trim(),
+                                   NumberStyles.Currency,
+                                   CultureInfo.GetCultureInfo("pt-BR"),
+                                   out decimal preco) &&
                     int.TryParse(item.SubItems[2].Text, out int quantidade))
                 {
                     decimal totalItem = preco * quantidade;
-                    item.SubItems[3].Text = totalItem.ToString("C"); // Atualiza o valor total do item
-                    totalGeral += totalItem;
 
+                    // Garante que temos a subitem para o total
+                    if (item.SubItems.Count < 4)
+                        item.SubItems.Add(totalItem.ToString("C"));
+                    else
+                        item.SubItems[3].Text = totalItem.ToString("C");
+
+                    totalGeral += totalItem;
                 }
             }
-            mtbValor.Text = totalGeral.ToString("C");
+
+            mtbValor.Text = totalGeral.ToString("N2");
 
         }
 
@@ -737,15 +829,17 @@ namespace Daycake
 
         private void txtQuantidade_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && lstTipoDoce.SelectedItems.Count > 0)
             {
-                if (lstTipoDoce.SelectedItems.Count > 0)
+                if (int.TryParse(txtQuantidade.Text, out int quantidade) && quantidade > 0)
                 {
-                    ListViewItem selectedItem = lstTipoDoce.SelectedItems[0];
-                    selectedItem.SubItems[2].Text = txtQuantidade.Text;
-
+                    lstTipoDoce.SelectedItems[0].SubItems[2].Text = quantidade.ToString();
+                    AtualizarTotalGeral();
                     e.SuppressKeyPress = true;
-
+                }
+                else
+                {
+                    MessageBox.Show("Digite uma quantidade válida (número inteiro positivo).");
                 }
             }
         }
