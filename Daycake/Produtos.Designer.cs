@@ -39,13 +39,9 @@
             this.tblPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.tblPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.lblNomeProduto = new System.Windows.Forms.Label();
             this.tblPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.mtbIdProduto = new System.Windows.Forms.MaskedTextBox();
             this.mtbPreco = new System.Windows.Forms.MaskedTextBox();
-            this.lblIdProduto = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.tblPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,12 +58,12 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
+            this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.tabControlProdutos.SuspendLayout();
             this.tabCadastroProdutos.SuspendLayout();
             this.tblPanelBaseProduto.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tblPanel3.SuspendLayout();
-            this.tblPanel2.SuspendLayout();
             this.tblPanel1.SuspendLayout();
             this.tblPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -105,19 +101,17 @@
             this.tblPanelBaseProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tblPanelBaseProduto.ColumnCount = 1;
             this.tblPanelBaseProduto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblPanelBaseProduto.Controls.Add(this.tableLayoutPanel1, 0, 7);
-            this.tblPanelBaseProduto.Controls.Add(this.tblPanel3, 0, 3);
-            this.tblPanelBaseProduto.Controls.Add(this.tblPanel2, 0, 2);
+            this.tblPanelBaseProduto.Controls.Add(this.tableLayoutPanel1, 0, 6);
+            this.tblPanelBaseProduto.Controls.Add(this.tblPanel3, 0, 2);
             this.tblPanelBaseProduto.Controls.Add(this.tblPanel1, 0, 1);
-            this.tblPanelBaseProduto.Controls.Add(this.tblPanel4, 0, 5);
+            this.tblPanelBaseProduto.Controls.Add(this.tblPanel4, 0, 4);
             this.tblPanelBaseProduto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblPanelBaseProduto.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tblPanelBaseProduto.Location = new System.Drawing.Point(3, 3);
             this.tblPanelBaseProduto.Name = "tblPanelBaseProduto";
-            this.tblPanelBaseProduto.RowCount = 9;
+            this.tblPanelBaseProduto.RowCount = 8;
             this.tblPanelBaseProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblPanelBaseProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.57548F));
-            this.tblPanelBaseProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.87441F));
             this.tblPanelBaseProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.23047F));
             this.tblPanelBaseProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.583801F));
             this.tblPanelBaseProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.90536F));
@@ -139,11 +133,11 @@
             this.tableLayoutPanel1.Controls.Add(this.btnVoltar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAtualizar, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 358);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 350);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(781, 35);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(781, 44);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // btnAdicionarProduto
@@ -153,7 +147,7 @@
             this.btnAdicionarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnAdicionarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
-            this.btnAdicionarProduto.Location = new System.Drawing.Point(596, 3);
+            this.btnAdicionarProduto.Location = new System.Drawing.Point(596, 8);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
             this.btnAdicionarProduto.Size = new System.Drawing.Size(142, 28);
             this.btnAdicionarProduto.TabIndex = 39;
@@ -168,7 +162,7 @@
             this.btnVoltar.AutoSize = true;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnVoltar.Location = new System.Drawing.Point(43, 3);
+            this.btnVoltar.Location = new System.Drawing.Point(43, 8);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(71, 28);
             this.btnVoltar.TabIndex = 38;
@@ -196,22 +190,22 @@
             this.tblPanel3.Controls.Add(this.txtDescricao, 1, 1);
             this.tblPanel3.Controls.Add(this.lblDescricao, 1, 0);
             this.tblPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPanel3.Location = new System.Drawing.Point(3, 156);
+            this.tblPanel3.Location = new System.Drawing.Point(3, 104);
             this.tblPanel3.Name = "tblPanel3";
             this.tblPanel3.RowCount = 2;
             this.tblPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tblPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.71429F));
-            this.tblPanel3.Size = new System.Drawing.Size(781, 108);
+            this.tblPanel3.Size = new System.Drawing.Size(781, 133);
             this.tblPanel3.TabIndex = 2;
             // 
             // txtDescricao
             // 
             this.txtDescricao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.txtDescricao.Location = new System.Drawing.Point(43, 18);
+            this.txtDescricao.Location = new System.Drawing.Point(43, 21);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(695, 87);
+            this.txtDescricao.Size = new System.Drawing.Size(695, 109);
             this.txtDescricao.TabIndex = 34;
             // 
             // lblDescricao
@@ -223,33 +217,6 @@
             this.lblDescricao.Size = new System.Drawing.Size(61, 15);
             this.lblDescricao.TabIndex = 33;
             this.lblDescricao.Text = "Descrição:";
-            // 
-            // tblPanel2
-            // 
-            this.tblPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tblPanel2.ColumnCount = 3;
-            this.tblPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tblPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tblPanel2.Controls.Add(this.txtNomeProduto, 1, 1);
-            this.tblPanel2.Controls.Add(this.lblNomeProduto, 1, 0);
-            this.tblPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPanel2.Location = new System.Drawing.Point(3, 89);
-            this.tblPanel2.Name = "tblPanel2";
-            this.tblPanel2.RowCount = 2;
-            this.tblPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tblPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tblPanel2.Size = new System.Drawing.Size(781, 61);
-            this.tblPanel2.TabIndex = 1;
-            // 
-            // txtNomeProduto
-            // 
-            this.txtNomeProduto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNomeProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.txtNomeProduto.Location = new System.Drawing.Point(43, 27);
-            this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(695, 23);
-            this.txtNomeProduto.TabIndex = 35;
             // 
             // lblNomeProduto
             // 
@@ -266,13 +233,13 @@
             this.tblPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tblPanel1.ColumnCount = 5;
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tblPanel1.Controls.Add(this.mtbIdProduto, 1, 1);
+            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tblPanel1.Controls.Add(this.txtNomeProduto, 1, 1);
             this.tblPanel1.Controls.Add(this.mtbPreco, 3, 1);
-            this.tblPanel1.Controls.Add(this.lblIdProduto, 1, 0);
+            this.tblPanel1.Controls.Add(this.lblNomeProduto, 1, 0);
             this.tblPanel1.Controls.Add(this.lblPreco, 3, 0);
             this.tblPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblPanel1.Location = new System.Drawing.Point(3, 23);
@@ -280,42 +247,23 @@
             this.tblPanel1.RowCount = 2;
             this.tblPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tblPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tblPanel1.Size = new System.Drawing.Size(781, 60);
+            this.tblPanel1.Size = new System.Drawing.Size(781, 75);
             this.tblPanel1.TabIndex = 0;
-            // 
-            // mtbIdProduto
-            // 
-            this.mtbIdProduto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtbIdProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.mtbIdProduto.Location = new System.Drawing.Point(43, 27);
-            this.mtbIdProduto.Name = "mtbIdProduto";
-            this.mtbIdProduto.Size = new System.Drawing.Size(332, 23);
-            this.mtbIdProduto.TabIndex = 33;
             // 
             // mtbPreco
             // 
             this.mtbPreco.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtbPreco.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.mtbPreco.Location = new System.Drawing.Point(404, 27);
+            this.mtbPreco.Location = new System.Drawing.Point(539, 33);
             this.mtbPreco.Name = "mtbPreco";
-            this.mtbPreco.Size = new System.Drawing.Size(332, 23);
+            this.mtbPreco.Size = new System.Drawing.Size(198, 23);
             this.mtbPreco.TabIndex = 32;
-            // 
-            // lblIdProduto
-            // 
-            this.lblIdProduto.AutoSize = true;
-            this.lblIdProduto.ForeColor = System.Drawing.Color.Black;
-            this.lblIdProduto.Location = new System.Drawing.Point(43, 0);
-            this.lblIdProduto.Name = "lblIdProduto";
-            this.lblIdProduto.Size = new System.Drawing.Size(67, 15);
-            this.lblIdProduto.TabIndex = 31;
-            this.lblIdProduto.Text = "ID Produto:";
             // 
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
             this.lblPreco.ForeColor = System.Drawing.Color.Black;
-            this.lblPreco.Location = new System.Drawing.Point(404, 0);
+            this.lblPreco.Location = new System.Drawing.Point(539, 0);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(40, 15);
             this.lblPreco.TabIndex = 30;
@@ -332,11 +280,11 @@
             this.tblPanel4.Controls.Add(this.tableLayoutPanel5, 3, 0);
             this.tblPanel4.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tblPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPanel4.Location = new System.Drawing.Point(3, 279);
+            this.tblPanel4.Location = new System.Drawing.Point(3, 254);
             this.tblPanel4.Name = "tblPanel4";
             this.tblPanel4.RowCount = 1;
             this.tblPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblPanel4.Size = new System.Drawing.Size(781, 73);
+            this.tblPanel4.Size = new System.Drawing.Size(781, 90);
             this.tblPanel4.TabIndex = 3;
             // 
             // tableLayoutPanel5
@@ -351,14 +299,14 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(317, 67);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(317, 84);
             this.tableLayoutPanel5.TabIndex = 38;
             // 
             // mtbTempoPreparo
             // 
             this.mtbTempoPreparo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtbTempoPreparo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.mtbTempoPreparo.Location = new System.Drawing.Point(3, 29);
+            this.mtbTempoPreparo.Location = new System.Drawing.Point(3, 36);
             this.mtbTempoPreparo.Mask = "00:00";
             this.mtbTempoPreparo.Name = "mtbTempoPreparo";
             this.mtbTempoPreparo.Size = new System.Drawing.Size(311, 23);
@@ -371,7 +319,7 @@
             this.lblTempoPreparo.ForeColor = System.Drawing.Color.Black;
             this.lblTempoPreparo.Location = new System.Drawing.Point(3, 0);
             this.lblTempoPreparo.Name = "lblTempoPreparo";
-            this.lblTempoPreparo.Size = new System.Drawing.Size(107, 15);
+            this.lblTempoPreparo.Size = new System.Drawing.Size(106, 15);
             this.lblTempoPreparo.TabIndex = 35;
             this.lblTempoPreparo.Text = "Tempo de Preparo:";
             // 
@@ -473,7 +421,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel3.Controls.Add(this.btnBuscar, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtBuscar, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblBuscar, 0, 0);
@@ -503,7 +451,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscar.Location = new System.Drawing.Point(3, 22);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(581, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(580, 20);
             this.txtBuscar.TabIndex = 5;
             // 
             // lblBuscar
@@ -515,6 +463,15 @@
             this.lblBuscar.Size = new System.Drawing.Size(98, 13);
             this.lblBuscar.TabIndex = 4;
             this.lblBuscar.Text = "Digite a sua busca:";
+            // 
+            // txtNomeProduto
+            // 
+            this.txtNomeProduto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNomeProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.txtNomeProduto.Location = new System.Drawing.Point(43, 33);
+            this.txtNomeProduto.Name = "txtNomeProduto";
+            this.txtNomeProduto.Size = new System.Drawing.Size(471, 23);
+            this.txtNomeProduto.TabIndex = 36;
             // 
             // Produtos
             // 
@@ -539,8 +496,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tblPanel3.ResumeLayout(false);
             this.tblPanel3.PerformLayout();
-            this.tblPanel2.ResumeLayout(false);
-            this.tblPanel2.PerformLayout();
             this.tblPanel1.ResumeLayout(false);
             this.tblPanel1.PerformLayout();
             this.tblPanel4.ResumeLayout(false);
@@ -567,13 +522,9 @@
         private System.Windows.Forms.TableLayoutPanel tblPanel3;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label lblDescricao;
-        private System.Windows.Forms.TableLayoutPanel tblPanel2;
-        private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.Label lblNomeProduto;
         private System.Windows.Forms.TableLayoutPanel tblPanel1;
-        private System.Windows.Forms.MaskedTextBox mtbIdProduto;
         private System.Windows.Forms.MaskedTextBox mtbPreco;
-        private System.Windows.Forms.Label lblIdProduto;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.TableLayoutPanel tblPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
@@ -591,5 +542,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.TextBox txtNomeProduto;
     }
 }

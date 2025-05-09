@@ -33,7 +33,6 @@
             this.mnsCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsAgendarPedido = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnsRecebimentos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsProducao = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsAdicionarProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsSair = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +53,7 @@
             this.mnsCadastro});
             this.mnsCliente.ForeColor = System.Drawing.Color.Black;
             this.mnsCliente.Name = "mnsCliente";
-            this.mnsCliente.Size = new System.Drawing.Size(81, 24);
+            this.mnsCliente.Size = new System.Drawing.Size(66, 20);
             this.mnsCliente.Text = "Cliente";
             // 
             // mnsCadastro
@@ -62,18 +61,17 @@
             this.mnsCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.mnsCadastro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
             this.mnsCadastro.Name = "mnsCadastro";
-            this.mnsCadastro.Size = new System.Drawing.Size(181, 30);
+            this.mnsCadastro.Size = new System.Drawing.Size(136, 22);
             this.mnsCadastro.Text = "Cadastro";
             this.mnsCadastro.Click += new System.EventHandler(this.mnsCadastro_Click);
             // 
             // mnsPedidos
             // 
             this.mnsPedidos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnsAgendarPedido,
-            this.mnsRecebimentos});
+            this.mnsAgendarPedido});
             this.mnsPedidos.ForeColor = System.Drawing.Color.Black;
             this.mnsPedidos.Name = "mnsPedidos";
-            this.mnsPedidos.Size = new System.Drawing.Size(88, 24);
+            this.mnsPedidos.Size = new System.Drawing.Size(71, 20);
             this.mnsPedidos.Text = "Pedidos";
             // 
             // mnsAgendarPedido
@@ -81,17 +79,9 @@
             this.mnsAgendarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.mnsAgendarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
             this.mnsAgendarPedido.Name = "mnsAgendarPedido";
-            this.mnsAgendarPedido.Size = new System.Drawing.Size(245, 30);
+            this.mnsAgendarPedido.Size = new System.Drawing.Size(180, 22);
             this.mnsAgendarPedido.Text = "Agendar Pedido";
             this.mnsAgendarPedido.Click += new System.EventHandler(this.mnsAgendarPedido_Click);
-            // 
-            // mnsRecebimentos
-            // 
-            this.mnsRecebimentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.mnsRecebimentos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
-            this.mnsRecebimentos.Name = "mnsRecebimentos";
-            this.mnsRecebimentos.Size = new System.Drawing.Size(245, 30);
-            this.mnsRecebimentos.Text = "Recebimentos";
             // 
             // mnsProducao
             // 
@@ -99,7 +89,7 @@
             this.mnsAdicionarProduto});
             this.mnsProducao.ForeColor = System.Drawing.Color.Black;
             this.mnsProducao.Name = "mnsProducao";
-            this.mnsProducao.Size = new System.Drawing.Size(102, 24);
+            this.mnsProducao.Size = new System.Drawing.Size(83, 20);
             this.mnsProducao.Text = "Produção";
             // 
             // mnsAdicionarProduto
@@ -107,7 +97,7 @@
             this.mnsAdicionarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.mnsAdicionarProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
             this.mnsAdicionarProduto.Name = "mnsAdicionarProduto";
-            this.mnsAdicionarProduto.Size = new System.Drawing.Size(263, 30);
+            this.mnsAdicionarProduto.Size = new System.Drawing.Size(195, 22);
             this.mnsAdicionarProduto.Text = "Adicionar Produto";
             this.mnsAdicionarProduto.Click += new System.EventHandler(this.mnsAdicionarProduto_Click);
             // 
@@ -115,7 +105,7 @@
             // 
             this.mnsSair.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.mnsSair.Name = "mnsSair";
-            this.mnsSair.Size = new System.Drawing.Size(56, 24);
+            this.mnsSair.Size = new System.Drawing.Size(46, 20);
             this.mnsSair.Text = "Sair";
             this.mnsSair.Click += new System.EventHandler(this.mnsSair_Click);
             // 
@@ -136,7 +126,7 @@
             this.mnsSair});
             this.mnsMenu.Location = new System.Drawing.Point(12, 20);
             this.mnsMenu.Name = "mnsMenu";
-            this.mnsMenu.Size = new System.Drawing.Size(413, 28);
+            this.mnsMenu.Size = new System.Drawing.Size(338, 24);
             this.mnsMenu.TabIndex = 0;
             this.mnsMenu.Text = "menuStrip1";
             this.mnsMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnsMenu_ItemClicked);
@@ -145,7 +135,7 @@
             // 
             this.statusToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
-            this.statusToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.statusToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.statusToolStripMenuItem.Text = "Status";
             this.statusToolStripMenuItem.Click += new System.EventHandler(this.statusToolStripMenuItem_Click);
             // 
@@ -180,7 +170,7 @@
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Daycake.Properties.Resources.FundoPag_3_1;
@@ -217,7 +207,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnsCadastro;
         private System.Windows.Forms.ToolStripMenuItem mnsPedidos;
         private System.Windows.Forms.ToolStripMenuItem mnsAgendarPedido;
-        private System.Windows.Forms.ToolStripMenuItem mnsRecebimentos;
         private System.Windows.Forms.ToolStripMenuItem mnsProducao;
         private System.Windows.Forms.ToolStripMenuItem mnsAdicionarProduto;
         private System.Windows.Forms.ToolStripMenuItem mnsSair;
