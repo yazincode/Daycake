@@ -281,27 +281,89 @@ namespace Daycake
             ListViewItem item = lstListaProdutos.SelectedItems[0];
 
             id_produto_selecionado = Convert.ToInt32(item.SubItems[0].Text);
-            txtNomeProduto.Text = item.SubItems[1].Text;
-            txtDescricao.Text = item.SubItems[2].Text;
-            mtbPreco.Text = item.SubItems[3].Text;
-            mtbTempoPreparo.Text = item.SubItems[4].Text;
-            cbxAtivoInativo.Text = item.SubItems[5].Text;
 
-            btnExcluir.Visible = true;
-
-            // Opcional: confirmação de exclusão ao selecionar
             DialogResult conf = MessageBox.Show("Deseja excluir este produto?", "Confirmação",
                                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (conf == DialogResult.Yes)
             {
                 excluir_produto();
+                return;
+            }
+            else
+            {
+                DialogResult atualizar = MessageBox.Show("Deseja atualizar este produto?", "Atualizar",
+                                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (atualizar == DialogResult.Yes)
+                {
+                    // Preenche os campos com os dados do produto
+                    txtNomeProduto.Text = item.SubItems[1].Text;
+                    txtDescricao.Text = item.SubItems[2].Text;
+                    mtbPreco.Text = item.SubItems[3].Text;
+                    mtbTempoPreparo.Text = item.SubItems[4].Text;
+                    cbxAtivoInativo.Text = item.SubItems[5].Text;
+
+                    btnAtualizar.Visible = true; // certifique-se que o botão existe e está visível
+                }
             }
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (id_produto_selecionado == null)
+            {
+                MessageBox.Show("Nenhum produto selecionado para atualização.", "Atenção",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            try
+            {
+                using (Conexao = new MySqlConnection(data_source))
+                {
+                    Conexao.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = Conexao;
+
+                    decimal precoDecimal;
+                    if (!decimal.TryParse(mtbPreco.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any,
+                                          System.Globalization.CultureInfo.InvariantCulture, out precoDecimal))
+                    {
+                        MessageBox.Show("Preço inválido. Digite um valor numérico, como 12.50.", "Erro",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    string precoFormatado = precoDecimal.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+
+                    cmd.CommandText =
+                        "UPDATE produto " +
+                        "SET nome = @nome, descricao = @descricao, preco = @preco, tempo_preparo = @tempo_preparo, status = @status " +
+                        "WHERE idProduto = @idProduto";
+
+                    cmd.Parameters.AddWithValue("@nome", txtNomeProduto.Text);
+                    cmd.Parameters.AddWithValue("@descricao", txtDescricao.Text);
+                    cmd.Parameters.AddWithValue("@preco", precoFormatado);
+                    cmd.Parameters.AddWithValue("@tempo_preparo", mtbTempoPreparo.Text);
+                    cmd.Parameters.AddWithValue("@status", cbxAtivoInativo.Text);
+                    cmd.Parameters.AddWithValue("@idProduto", id_produto_selecionado);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Produto atualizado com sucesso!", "Sucesso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                carregar_produtos();
+                zerar_Forms();
+                btnAtualizar.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar: " + ex.Message, "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
