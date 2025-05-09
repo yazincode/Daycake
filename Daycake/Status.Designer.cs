@@ -32,7 +32,6 @@
             this.tabControlStatus = new System.Windows.Forms.TabControl();
             this.tabStatusPedido = new System.Windows.Forms.TabPage();
             this.tblPanelBase = new System.Windows.Forms.TableLayoutPanel();
-            this.btnExcluirPedidos = new System.Windows.Forms.Button();
             this.lstFiltro = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnFiltrar = new System.Windows.Forms.Button();
@@ -42,6 +41,8 @@
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblDataPedido = new System.Windows.Forms.Label();
+            this.mtbDataPedido = new System.Windows.Forms.MaskedTextBox();
+            this.mtbDataEntrega = new System.Windows.Forms.MaskedTextBox();
             this.tabRelatorio = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,8 +50,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.mtbDataPedido = new System.Windows.Forms.MaskedTextBox();
-            this.mtbDataEntrega = new System.Windows.Forms.MaskedTextBox();
             this.tabControlStatus.SuspendLayout();
             this.tabStatusPedido.SuspendLayout();
             this.tblPanelBase.SuspendLayout();
@@ -76,7 +75,7 @@
             this.tabStatusPedido.Controls.Add(this.tblPanelBase);
             this.tabStatusPedido.Location = new System.Drawing.Point(4, 22);
             this.tabStatusPedido.Name = "tabStatusPedido";
-            this.tabStatusPedido.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStatusPedido.Padding = new System.Windows.Forms.Padding(3);
             this.tabStatusPedido.Size = new System.Drawing.Size(794, 421);
             this.tabStatusPedido.TabIndex = 0;
             this.tabStatusPedido.Text = "Status do Pedido";
@@ -90,7 +89,6 @@
             this.tblPanelBase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tblPanelBase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblPanelBase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tblPanelBase.Controls.Add(this.btnExcluirPedidos, 1, 3);
             this.tblPanelBase.Controls.Add(this.lstFiltro, 1, 2);
             this.tblPanelBase.Controls.Add(this.tableLayoutPanel1, 1, 1);
             this.tblPanelBase.Location = new System.Drawing.Point(-4, 0);
@@ -102,18 +100,6 @@
             this.tblPanelBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tblPanelBase.Size = new System.Drawing.Size(802, 425);
             this.tblPanelBase.TabIndex = 4;
-            // 
-            // btnExcluirPedidos
-            // 
-            this.btnExcluirPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluirPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluirPedidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnExcluirPedidos.Location = new System.Drawing.Point(608, 390);
-            this.btnExcluirPedidos.Name = "btnExcluirPedidos";
-            this.btnExcluirPedidos.Size = new System.Drawing.Size(161, 24);
-            this.btnExcluirPedidos.TabIndex = 5;
-            this.btnExcluirPedidos.Text = "Excluir";
-            this.btnExcluirPedidos.UseVisualStyleBackColor = true;
             // 
             // lstFiltro
             // 
@@ -236,12 +222,30 @@
             this.lblDataPedido.TabIndex = 9;
             this.lblDataPedido.Text = "Data do pedido:";
             // 
+            // mtbDataPedido
+            // 
+            this.mtbDataPedido.Location = new System.Drawing.Point(3, 23);
+            this.mtbDataPedido.Mask = "00/00/0000";
+            this.mtbDataPedido.Name = "mtbDataPedido";
+            this.mtbDataPedido.Size = new System.Drawing.Size(229, 20);
+            this.mtbDataPedido.TabIndex = 16;
+            this.mtbDataPedido.ValidatingType = typeof(System.DateTime);
+            // 
+            // mtbDataEntrega
+            // 
+            this.mtbDataEntrega.Location = new System.Drawing.Point(238, 23);
+            this.mtbDataEntrega.Mask = "00/00/0000";
+            this.mtbDataEntrega.Name = "mtbDataEntrega";
+            this.mtbDataEntrega.Size = new System.Drawing.Size(228, 20);
+            this.mtbDataEntrega.TabIndex = 17;
+            this.mtbDataEntrega.ValidatingType = typeof(System.DateTime);
+            // 
             // tabRelatorio
             // 
             this.tabRelatorio.Controls.Add(this.tableLayoutPanel3);
             this.tabRelatorio.Location = new System.Drawing.Point(4, 22);
             this.tabRelatorio.Name = "tabRelatorio";
-            this.tabRelatorio.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabRelatorio.Padding = new System.Windows.Forms.Padding(3);
             this.tabRelatorio.Size = new System.Drawing.Size(794, 421);
             this.tabRelatorio.TabIndex = 1;
             this.tabRelatorio.Text = "Relatório";
@@ -336,24 +340,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(710, 46);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // mtbDataPedido
-            // 
-            this.mtbDataPedido.Location = new System.Drawing.Point(3, 23);
-            this.mtbDataPedido.Mask = "00/00/0000";
-            this.mtbDataPedido.Name = "mtbDataPedido";
-            this.mtbDataPedido.Size = new System.Drawing.Size(229, 20);
-            this.mtbDataPedido.TabIndex = 16;
-            this.mtbDataPedido.ValidatingType = typeof(System.DateTime);
-            // 
-            // mtbDataEntrega
-            // 
-            this.mtbDataEntrega.Location = new System.Drawing.Point(238, 23);
-            this.mtbDataEntrega.Mask = "00/00/0000";
-            this.mtbDataEntrega.Name = "mtbDataEntrega";
-            this.mtbDataEntrega.Size = new System.Drawing.Size(228, 20);
-            this.mtbDataEntrega.TabIndex = 17;
-            this.mtbDataEntrega.ValidatingType = typeof(System.DateTime);
-            // 
             // Status
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,7 +376,6 @@
         private System.Windows.Forms.TabPage tabStatusPedido;
         private System.Windows.Forms.TabPage tabRelatorio;
         private System.Windows.Forms.TableLayoutPanel tblPanelBase;
-        private System.Windows.Forms.Button btnExcluirPedidos;
         private System.Windows.Forms.ListView lstFiltro;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnFiltrar;

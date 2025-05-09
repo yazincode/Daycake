@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,141 +15,174 @@ namespace Daycake
 {
     public partial class Status : Form
     {
+        MySqlConnection Conexao;
+        private string data_source = "datasource=localhost;username=root;password=;database=Daycake";
+        public int? id_pedido_selecionado = null;
+
         public Status()
         {
             InitializeComponent();
-        }
 
-        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
-        {
+            lstFiltro.View = View.Details;
+            lstFiltro.Columns.Clear();
+            lstFiltro.Items.Clear();
 
+            lstFiltro.Columns.Add("ID Pedido", 100);
+            lstFiltro.Columns.Add("ID Cliente", 100);
+            lstFiltro.Columns.Add("Nome do Cliente", 100);
+            lstFiltro.Columns.Add("Data do Pedido", 100);
+            lstFiltro.Columns.Add("Data da Entrega", 100);
+            lstFiltro.Columns.Add("Status", 180);
+
+            carregar_pedido();
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validar e converter as datas
-                if (!DateTime.TryParse(mtbDataPedido.Text, out DateTime dataPedido))
-                {
-                    MessageBox.Show("Data do pedido inválida. Use o formato dd/MM/yyyy");
-                    mtbDataPedido.Focus();
-                    return;
-                }
-
-                if (!DateTime.TryParse(mtbDataEntrega.Text, out DateTime dataEntrega))
-                {
-                    MessageBox.Show("Data de entrega inválida. Use o formato dd/MM/yyyy");
-                    mtbDataEntrega.Focus();
-                    return;
-                }
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
 
                 string statusSelecionado = cbxStatus.SelectedItem?.ToString();
+                string dataPedidoTexto = mtbDataPedido.Text.Trim();
+                string dataEntregaTexto = mtbDataEntrega.Text.Trim();
 
-                // Validar seleção do status
-                if (string.IsNullOrEmpty(statusSelecionado))
+                // Verificação de campos obrigatórios
+                if (string.IsNullOrEmpty(statusSelecionado) ||
+                    string.IsNullOrEmpty(dataPedidoTexto) ||
+                    string.IsNullOrEmpty(dataEntregaTexto))
                 {
-                    MessageBox.Show("Por favor, selecione um status.");
+                    MessageBox.Show("Preencha todos os campos: Data do Pedido, Data de Entrega e Status.");
                     return;
                 }
 
-                // Consultar o banco de dados
-                var dadosFiltrados = FiltrarDadosDoBanco(dataPedido, dataEntrega, statusSelecionado);
+                // Conversão segura de datas
+                if (!DateTime.TryParse(dataPedidoTexto, out DateTime dataPedido))
+                {
+                    MessageBox.Show("Data do Pedido inválida.");
+                    return;
+                }
 
-                // Preencher o ListView
-                PreencherListView(dadosFiltrados);
+                if (!DateTime.TryParse(dataEntregaTexto, out DateTime dataEntrega))
+                {
+                    MessageBox.Show("Data da Entrega inválida.");
+                    return;
+                }
+
+                string sql = @"SELECT idPedido, clienteid, nomeCliente, data_pedido, data_entrega, status 
+                       FROM Pedido 
+                       WHERE status = @Status AND data_pedido = @DataPedido AND data_entrega = @DataEntrega";
+
+                MySqlCommand cmd = new MySqlCommand(sql, Conexao);
+                cmd.Parameters.AddWithValue("@Status", statusSelecionado);
+                cmd.Parameters.AddWithValue("@DataPedido", dataPedido.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@DataEntrega", dataEntrega.ToString("yyyy-MM-dd"));
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                lstFiltro.Items.Clear();
+
+                while (reader.Read())
+                {
+                    string[] lin = new string[6];
+                    lin[0] = reader["idPedido"].ToString();
+                    lin[1] = reader["clienteid"].ToString();
+                    lin[2] = reader["nomeCliente"].ToString();
+                    lin[3] = Convert.ToDateTime(reader["data_pedido"]).ToString("dd/MM/yyyy");
+                    lin[4] = Convert.ToDateTime(reader["data_entrega"]).ToString("dd/MM/yyyy");
+                    lin[5] = reader["status"].ToString();
+
+                    var linha_list_view = new ListViewItem(lin);
+                    lstFiltro.Items.Add(linha_list_view);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao filtrar dados: {ex.Message}");
+                MessageBox.Show("Erro ao filtrar pedidos: " + ex.Message);
             }
-        }
-
-        private List<Pedido> FiltrarDadosDoBanco(DateTime dataPedido, DateTime dataEntrega, string status)
-        {
-            List<Pedido> resultados = new List<Pedido>();
-
-            using (var connection = new SqlConnection("sua_string_de_conexao"))
+            finally
             {
-                connection.Open();
-
-                string query = @"SELECT * FROM Pedidos 
-                        WHERE DataPedido >= @DataPedidoInicio 
-                        AND DataPedido <= @DataPedidoFim
-                        AND DataEntrega >= @DataEntregaInicio
-                        AND DataEntrega <= @DataEntregaFim
-                        AND Status = @Status";
-
-                using (var command = new SqlCommand(query, connection))
-                {
-                    // Ajuste para considerar todo o dia selecionado
-                    command.Parameters.AddWithValue("@DataPedidoInicio", dataPedido.Date);
-                    command.Parameters.AddWithValue("@DataPedidoFim", dataPedido.Date.AddDays(1).AddSeconds(-1));
-                    command.Parameters.AddWithValue("@DataEntregaInicio", dataEntrega.Date);
-                    command.Parameters.AddWithValue("@DataEntregaFim", dataEntrega.Date.AddDays(1).AddSeconds(-1));
-                    command.Parameters.AddWithValue("@Status", status);
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            resultados.Add(new Pedido
-                            {
-                                Id = reader.GetInt32(0),
-                                NumeroPedido = reader.GetString(1),
-                                DataPedido = reader.GetDateTime(2),
-                                DataEntrega = reader.GetDateTime(3),
-                                Status = reader.GetString(4),
-                                Cliente = reader.GetString(5)
-                                // ... outros campos conforme sua tabela
-                            });
-                        }
-                    }
-                }
-            }
-
-            return resultados;
-        }
-        private void PreencherListView(List<Pedido> pedidos)
-        {
-            lstFiltro.Items.Clear();
-
-            // Configurar colunas se ainda não estiverem configuradas
-            if (lstFiltro.Columns.Count == 0)
-            {
-                lstFiltro.View = View.Details;
-                lstFiltro.Columns.Add("ID", 50);
-                lstFiltro.Columns.Add("Nº Pedido", 80);
-                lstFiltro.Columns.Add("Data Pedido", 100);
-                lstFiltro.Columns.Add("Data Entrega", 100);
-                lstFiltro.Columns.Add("Status", 80);
-                lstFiltro.Columns.Add("Cliente", 150);
-                // ... outras colunas conforme necessário
-            }
-
-            // Adicionar os itens
-            foreach (var pedido in pedidos)
-            {
-                var item = new ListViewItem(pedido.Id.ToString());
-                item.SubItems.Add(pedido.NumeroPedido);
-                item.SubItems.Add(pedido.DataPedido.ToString("dd/MM/yyyy"));
-                item.SubItems.Add(pedido.DataEntrega.ToString("dd/MM/yyyy"));
-                item.SubItems.Add(pedido.Status);
-                item.SubItems.Add(pedido.Cliente);
-                // ... outros campos
-
-                lstFiltro.Items.Add(item);
+                Conexao.Close();
             }
         }
 
         private void Status_Load(object sender, EventArgs e)
         {
-            cbxStatus.Items.Add("Em andamento");
-            cbxStatus.Items.Add("Finalizado");
-            cbxStatus.Items.Add("Cancelado");
-            cbxStatus.Items.Add("Entregue");
+            cbxStatus.Items.Clear(); // Limpa itens existentes
 
-            cbxStatus.SelectedIndex = 0;
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                string sql = "SELECT DISTINCT status FROM Pedido ORDER BY status";
+
+                MySqlCommand cmd = new MySqlCommand(sql, Conexao);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cbxStatus.Items.Add(reader["status"].ToString());
+                }
+
+                if (cbxStatus.Items.Count > 0)
+                    cbxStatus.SelectedIndex = 0;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar status do banco: " + ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+
+            carregar_pedido();
+        }
+   
+
+    private void carregar_pedido()
+        {
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+
+                string sql = "SELECT idPedido, clienteid, nomeCliente, data_pedido, data_entrega, status FROM Pedido ORDER BY idPedido ASC";
+
+                Conexao.Open();
+
+                MySqlCommand buscar = new MySqlCommand(sql, Conexao);
+
+                MySqlDataReader reader = buscar.ExecuteReader();
+
+                lstFiltro.Items.Clear();
+
+                while (reader.Read())
+                {
+                    string[] lin = new string[6];
+                    lin[0] = reader["idPedido"].ToString();
+                    lin[1] = reader["clienteid"].ToString();
+                    lin[2] = reader["nomeCliente"].ToString();
+                    lin[3] = Convert.ToDateTime(reader["data_pedido"]).ToString("dd/MM/yyyy");
+                    lin[4] = Convert.ToDateTime(reader["data_entrega"]).ToString("dd/MM/yyyy");
+                    lin[5] = reader["status"].ToString();
+
+                    var linha_list_view = new ListViewItem(lin);
+                    lstFiltro.Items.Add(linha_list_view);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
         }
     }
 }
+

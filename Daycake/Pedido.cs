@@ -10,8 +10,8 @@ namespace Daycake
     {
         public int Id { get; set; }
         public string NumeroPedido { get; set; }
-        public DateTime DataPedido { get; set; }
-        public DateTime DataEntrega { get; set; }
+        public string DataPedido { get; set; }
+        public string DataEntrega { get; set; }
         public string Status { get; set; }
         public string Cliente { get; set; }
     }
