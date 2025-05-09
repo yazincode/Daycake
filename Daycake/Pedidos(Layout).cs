@@ -491,19 +491,18 @@ namespace Daycake
                             "VALUES (@clienteid, @nomeCliente, @data_pedido, @data_entrega, @valor, @tipo_de_doce, @descricao, @forma_pagamento, @status)";
 
                         // Converter valor para decimal (tratando formatação monetária)
-                        decimal valor;
-                        if (!decimal.TryParse(mtbValor.Text.Replace("R$", "").Trim(), NumberStyles.Currency, CultureInfo.GetCultureInfo("pt-BR"), out valor))
-                        { 
-                            cmd.Parameters.AddWithValue("@valor", valor);
-                        }
-                        else
+                        decimal valorDecimal;
+
+                        if (!decimal.TryParse(mtbValor.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out valorDecimal))
                         {
-                            MessageBox.Show("Formato de valor inválido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Preço inválido. Digite um valor numérico, como 12.50.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
+                        string valorFormatado = valorDecimal.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+                        cmd.Parameters.AddWithValue("@valor", valorFormatado);
 
-                            // Concatenar tipos de doces
-                            string tipoDeDoceConcatenado = ConcatenarDocesDoListView(lstTipoDoce);
+                        // Concatenar tipos de doces
+                        string tipoDeDoceConcatenado = ConcatenarDocesDoListView(lstTipoDoce);
 
                         cmd.Parameters.AddWithValue("@clienteid", clienteId);
                         cmd.Parameters.AddWithValue("@nomeCliente", cbxNomeCliente.Text);
@@ -698,7 +697,7 @@ namespace Daycake
             foreach (ListViewItem item in lstTipoDoce.Items)
             {
                 if (item.SubItems.Count >= 4 &&
-                    decimal.TryParse(item.SubItems[1].Text.Replace("R$", "").Trim(), out decimal preco) &&
+                    decimal.TryParse(item.SubItems[1].Text.Replace("", "").Trim(), out decimal preco) &&
                     int.TryParse(item.SubItems[2].Text, out int quantidade))
                 {
                     decimal totalItem = preco * quantidade;
