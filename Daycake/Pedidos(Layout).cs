@@ -112,7 +112,7 @@ namespace Daycake
             cbxNomeCliente.Text = "";
             mtbDataPedido.Text = "";
             mtbDataEntrega.Text = "";
-            txtValor.Text = "";
+            mtbValor.Text = "";
             txtDescricao.Text = "";
             lstTipoDoce.Items.Clear();
             cbxFormaPagamento.SelectedIndex = -1;
@@ -189,12 +189,24 @@ namespace Daycake
         {
             try
             {
+                string termoBusca = "%" + txtBuscarPedidos.Text + "%";
+
+                Conexao = new MySqlConnection(data_source);
+
+                string sql = @"SELECT idPedido, clienteid, nomeCliente, data_pedido, data_entrega, valor, tipo_de_doce, descricao, forma_pagamento, status
+                FROM Pedido 
+                WHERE nomeCliente LIKE @termo 
+                OR valor LIKE @termo 
+                OR status LIKE @termo";
+
                 Conexao.Open();
 
-                string sql = "SELECT * FROM Pedido";
-
                 MySqlCommand cmd = new MySqlCommand(sql, Conexao);
+                cmd.Parameters.AddWithValue("@termo", termoBusca);
+
                 MySqlDataReader reader = cmd.ExecuteReader();
+
+                lstListaPedidos.Items.Clear();
 
                 while (reader.Read())
                 {
@@ -214,15 +226,16 @@ namespace Daycake
                     var linha_list_view = new ListViewItem(lin);
                     lstListaPedidos.Items.Add(linha_list_view);
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro na busca: " + ex.Message, "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                Conexao.Close();
+                if (Conexao?.State == ConnectionState.Open)
+                    Conexao.Close();
             }
         }
 
@@ -234,7 +247,6 @@ namespace Daycake
 
         private void btnAtualizarPedido_Click(object sender, EventArgs e)
         {
-
             try
             {
 
@@ -274,7 +286,7 @@ namespace Daycake
                 cmd.Parameters.AddWithValue("@nomeCliente", cbxNomeCliente.Text);
                 cmd.Parameters.AddWithValue("@data_pedido", mtbDataPedido.Text);
                 cmd.Parameters.AddWithValue("@data_entrega", mtbDataEntrega.Text);
-                cmd.Parameters.AddWithValue("@valor", txtValor.Text);
+                cmd.Parameters.AddWithValue("@valor", mtbValor.Text);
                 string tipoDeDoceConcatenado = ConcatenarDocesDoListView(lstTipoDoce);
                 cmd.Parameters.AddWithValue("@tipoDoce", tipoDeDoceConcatenado);
                 cmd.Parameters.AddWithValue("@descricao", txtDescricao.Text);
@@ -316,7 +328,7 @@ namespace Daycake
                 cbxNomeCliente.Text = item.SubItems[1].Text;
                 mtbDataPedido.Text = item.SubItems[2].Text;
                 mtbDataEntrega.Text = item.SubItems[3].Text;
-                txtValor.Text = item.SubItems[4].Text;
+                mtbValor.Text = item.SubItems[4].Text;
                 txtDescricao.Text = item.SubItems[5].Text;
                 lstTipoDoce.Text = item.SubItems[6].Text;
                 cbxFormaPagamento.Text = item.SubItems[7].Text;
@@ -324,8 +336,9 @@ namespace Daycake
 
             }
 
-            btnExcluirPedido.Visible = true; // Exibe o botão de exclusão
+            btnExcluirPedido.Visible = true; // Exibe o botão de exclusãoualizarPedido.Visible = true;
         }
+        
 
 
 
@@ -479,7 +492,7 @@ namespace Daycake
 
                         // Converter valor para decimal (tratando formatação monetária)
                         decimal valor;
-                        if (!decimal.TryParse(txtValor.Text.Replace("R$", "").Trim(), NumberStyles.Currency, CultureInfo.GetCultureInfo("pt-BR"), out valor))
+                        if (!decimal.TryParse(mtbValor.Text.Replace("R$", "").Trim(), NumberStyles.Currency, CultureInfo.GetCultureInfo("pt-BR"), out valor))
                         { 
                             cmd.Parameters.AddWithValue("@valor", valor);
                         }
@@ -694,7 +707,7 @@ namespace Daycake
 
                 }
             }
-            txtValor.Text = totalGeral.ToString("C");
+            mtbValor.Text = totalGeral.ToString("C");
 
         }
 

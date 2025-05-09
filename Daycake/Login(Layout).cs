@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Daycake
 {
@@ -19,8 +21,8 @@ namespace Daycake
         private void btnAcessar_Click(object sender, EventArgs e)
         {
 
-            FormMenu menu = new FormMenu();
-            menu.Show(this);
+            //FormMenu menu = new FormMenu();
+            //menu.Show(this);
         }
 
         private void btnAcessar_Paint(object sender, PaintEventArgs e)
@@ -145,44 +147,53 @@ namespace Daycake
             }
         }
 
-    }
-}
-
-
-/*
-namespace Daycake
-{
-    public partial class Login : Form
-    {
-        public Login()
+        private void btnAcessar_Click_1(object sender, EventArgs e)
         {
-            InitializeComponent();
-        }
+            string usuario = txtLogin.Text.Trim();
+            string senha = txtSenha.Text.Trim();
 
-
-
-
-        private void btnAcessar_Click(object sender, EventArgs e)
-        {
-            if (txtLogin.Text == "admin" && txtSenha.Text == "admin")
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha))
             {
-                MessageBox.Show("Login realizado com sucesso!");
-
-                Menu menu = new Menu();
-                menu.Show();
-               
-            }
-
-            else
-            {
-                MessageBox.Show("Usuario Não Autenticado!",
-                      "Erro!", MessageBoxButtons.OK,
-                      MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, preencha todos os campos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            if (ValidarLogin(usuario, senha))
+            {
+                MessageBox.Show("Login realizado com sucesso!", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FormMenu menu = new FormMenu();
+                menu.Show(this);
+            }
+            else
+            {
+                MessageBox.Show("Login ou senha inválidos ou usuário inativo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool ValidarLogin(string usuario, string senha)
+        {
+            string conexaoString = "datasource=localhost;username=root;password=1007;database=daycake";
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                string query = "SELECT COUNT(*) FROM Usuario WHERE login = @login AND senha = @senha AND ativo = true";
+                MySqlCommand cmd = new MySqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@login", usuario);
+                cmd.Parameters.AddWithValue("@senha", senha);
+
+                try
+                {
+                    conexao.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar ao banco de dados:\n" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
         }
     }
 }
-*/
-

@@ -55,8 +55,8 @@
             this.tblPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxFormaPagamento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
             this.lblFormaPagamento = new System.Windows.Forms.Label();
+            this.mtbValor = new System.Windows.Forms.MaskedTextBox();
             this.tblPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -157,7 +157,7 @@
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.1556F));
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.81278F));
-            this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.tblPanel6.Controls.Add(this.btnAtualizarPedido, 3, 0);
             this.tblPanel6.Controls.Add(this.btnNovo, 1, 0);
             this.tblPanel6.Controls.Add(this.btnFazerPedido, 4, 0);
@@ -176,7 +176,7 @@
             this.btnAtualizarPedido.BackColor = System.Drawing.Color.White;
             this.btnAtualizarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnAtualizarPedido.Location = new System.Drawing.Point(601, 4);
+            this.btnAtualizarPedido.Location = new System.Drawing.Point(597, 4);
             this.btnAtualizarPedido.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAtualizarPedido.Name = "btnAtualizarPedido";
             this.btnAtualizarPedido.Size = new System.Drawing.Size(80, 26);
@@ -206,7 +206,7 @@
             this.btnFazerPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnFazerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFazerPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
-            this.btnFazerPedido.Location = new System.Drawing.Point(694, 4);
+            this.btnFazerPedido.Location = new System.Drawing.Point(690, 4);
             this.btnFazerPedido.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnFazerPedido.Name = "btnFazerPedido";
             this.btnFazerPedido.Size = new System.Drawing.Size(107, 26);
@@ -444,8 +444,8 @@
             this.tblPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tblPanel3.Controls.Add(this.cbxFormaPagamento, 3, 1);
             this.tblPanel3.Controls.Add(this.label1, 1, 0);
-            this.tblPanel3.Controls.Add(this.txtValor, 1, 1);
             this.tblPanel3.Controls.Add(this.lblFormaPagamento, 3, 0);
+            this.tblPanel3.Controls.Add(this.mtbValor, 1, 1);
             this.tblPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblPanel3.Location = new System.Drawing.Point(4, 326);
             this.tblPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -478,17 +478,6 @@
             this.label1.TabIndex = 38;
             this.label1.Text = "Valor";
             // 
-            // txtValor
-            // 
-            this.txtValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.txtValor.Location = new System.Drawing.Point(44, 21);
-            this.txtValor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(389, 16);
-            this.txtValor.TabIndex = 37;
-            // 
             // lblFormaPagamento
             // 
             this.lblFormaPagamento.AutoSize = true;
@@ -499,6 +488,13 @@
             this.lblFormaPagamento.Size = new System.Drawing.Size(124, 15);
             this.lblFormaPagamento.TabIndex = 35;
             this.lblFormaPagamento.Text = "Forma de Pagamento:";
+            // 
+            // mtbValor
+            // 
+            this.mtbValor.Location = new System.Drawing.Point(43, 21);
+            this.mtbValor.Name = "mtbValor";
+            this.mtbValor.Size = new System.Drawing.Size(391, 23);
+            this.mtbValor.TabIndex = 41;
             // 
             // tblPanel1
             // 
@@ -676,7 +672,7 @@
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel7.Controls.Add(this.btnBuscarPedidos, 2, 1);
             this.tableLayoutPanel7.Controls.Add(this.txtBuscarPedidos, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.lblBuscarPedidos, 0, 0);
@@ -708,7 +704,7 @@
             this.txtBuscarPedidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscarPedidos.Location = new System.Drawing.Point(3, 26);
             this.txtBuscarPedidos.Name = "txtBuscarPedidos";
-            this.txtBuscarPedidos.Size = new System.Drawing.Size(601, 16);
+            this.txtBuscarPedidos.Size = new System.Drawing.Size(599, 16);
             this.txtBuscarPedidos.TabIndex = 5;
             // 
             // lblBuscarPedidos
@@ -797,7 +793,6 @@
         private System.Windows.Forms.Label lblDataPedido;
         private System.Windows.Forms.TableLayoutPanel tblPanel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label lblFormaPagamento;
         private System.Windows.Forms.TableLayoutPanel tblPanel1;
         private System.Windows.Forms.Label lblIdCliente;
@@ -828,5 +823,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem excluirPedidosToolStripMenuItem;
         private System.Windows.Forms.ComboBox cbxNomeCliente;
+        private System.Windows.Forms.MaskedTextBox mtbValor;
     }
 }
