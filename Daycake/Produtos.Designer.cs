@@ -142,14 +142,14 @@
             // 
             // btnAdicionarProduto
             // 
-            this.btnAdicionarProduto.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAdicionarProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdicionarProduto.AutoSize = true;
             this.btnAdicionarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnAdicionarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
-            this.btnAdicionarProduto.Location = new System.Drawing.Point(596, 8);
+            this.btnAdicionarProduto.Location = new System.Drawing.Point(596, 3);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
-            this.btnAdicionarProduto.Size = new System.Drawing.Size(142, 28);
+            this.btnAdicionarProduto.Size = new System.Drawing.Size(142, 27);
             this.btnAdicionarProduto.TabIndex = 39;
             this.btnAdicionarProduto.Text = "Adicionar Produto";
             this.btnAdicionarProduto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -158,11 +158,10 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnVoltar.AutoSize = true;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnVoltar.Location = new System.Drawing.Point(43, 8);
+            this.btnVoltar.Location = new System.Drawing.Point(43, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(71, 28);
             this.btnVoltar.TabIndex = 38;
@@ -226,7 +225,7 @@
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tblPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tblPanel1.Controls.Add(this.txtNomeProduto, 1, 1);
             this.tblPanel1.Controls.Add(this.mtbPreco, 3, 1);
             this.tblPanel1.Controls.Add(this.lblNomeProduto, 1, 0);
@@ -430,7 +429,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
             this.tableLayoutPanel3.Controls.Add(this.btnBuscar, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtBuscar, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblBuscar, 0, 0);
@@ -460,7 +459,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscar.Location = new System.Drawing.Point(3, 22);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(579, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(578, 20);
             this.txtBuscar.TabIndex = 5;
             // 
             // lblBuscar
