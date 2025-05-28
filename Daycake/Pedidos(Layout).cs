@@ -17,7 +17,7 @@ namespace Daycake
     public partial class FormPedido : Form
     {
         MySqlConnection Conexao;
-        private string data_source = "datasource=localhost;username=root;password=;database=Daycake";
+        private string data_source = "datasource=localhost;username=root;password=1007;database=Daycake";
         public int? id_pedido_selecionado = null;
 
         List<ClienteItem> ListaClientes = new List<ClienteItem>();
@@ -39,8 +39,8 @@ namespace Daycake
             lstListaPedidos.Columns.Add("Nome do Cliente", 100);
             lstListaPedidos.Columns.Add("Data do Pedido", 100);
             lstListaPedidos.Columns.Add("Data da Entrega", 100);
-            lstListaPedidos.Columns.Add("Tipo de Pedido", 180);
             lstListaPedidos.Columns.Add("Valor", 100);
+            lstListaPedidos.Columns.Add("Tipo de Pedido", 180);
             lstListaPedidos.Columns.Add("Descrição", 180);
             lstListaPedidos.Columns.Add("Forma de Pagamento", 100);
             lstListaPedidos.Columns.Add("Status", 150);
@@ -397,36 +397,6 @@ namespace Daycake
 
         private void CarregarCliente()
         {
-            //ListaClientes.Clear();
-            //cbxNomeCliente.Items.Clear();
-
-            //try
-            //{
-            //    using (var conexao = new MySqlConnection(data_source))
-            //    {
-            //        conexao.Open();
-            //        string sql = "SELECT idCliente, nome FROM Cliente ORDER BY nome";
-
-            //        using (var cmd = new MySqlCommand(sql, conexao))
-            //        using (var reader = cmd.ExecuteReader())
-            //        {
-            //            while (reader.Read())
-            //            {
-            //                var cliente = new ClienteItem
-            //                {
-            //                    IDCliente = reader.GetInt32("idCliente"),
-            //                    nomeCliente = reader.GetString("nome")
-            //                };
-            //                ListaClientes.Add(cliente);
-            //                cbxNomeCliente.Items.Add(cliente);
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Erro ao carregar clientes: {ex.Message}");
-            //}
 
             ListaClientes.Clear();
             cbxNomeCliente.Items.Clear();
@@ -437,7 +407,7 @@ namespace Daycake
 
             AutoCompleteStringCollection nomes = new AutoCompleteStringCollection();
 
-            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=;database=daycake"))
+            using (MySqlConnection conexao = new MySqlConnection("datasource=localhost;username=root;password=1007;database=daycake"))
             {
                 try
                 {
@@ -507,7 +477,7 @@ namespace Daycake
 
             CarregarCliente();
 
-            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
             string query = "SELECT nome FROM Produto";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -698,7 +668,7 @@ namespace Daycake
 
         private void cbxTipoDoce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connectionString = "datasource=localhost;username=root;password=;database=daycake";
+            string connectionString = "datasource=localhost;username=root;password=1007;database=daycake";
             string produtoSelecionado = cbxTipoDoce.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(produtoSelecionado))

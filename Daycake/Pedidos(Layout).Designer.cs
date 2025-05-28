@@ -157,7 +157,7 @@
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.1556F));
             this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.81278F));
-            this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tblPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tblPanel6.Controls.Add(this.btnAtualizarPedido, 3, 0);
             this.tblPanel6.Controls.Add(this.btnNovo, 1, 0);
             this.tblPanel6.Controls.Add(this.btnFazerPedido, 4, 0);
@@ -176,7 +176,7 @@
             this.btnAtualizarPedido.BackColor = System.Drawing.Color.White;
             this.btnAtualizarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnAtualizarPedido.Location = new System.Drawing.Point(595, 4);
+            this.btnAtualizarPedido.Location = new System.Drawing.Point(592, 4);
             this.btnAtualizarPedido.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAtualizarPedido.Name = "btnAtualizarPedido";
             this.btnAtualizarPedido.Size = new System.Drawing.Size(80, 26);
@@ -206,7 +206,7 @@
             this.btnFazerPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnFazerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFazerPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(223)))));
-            this.btnFazerPedido.Location = new System.Drawing.Point(687, 4);
+            this.btnFazerPedido.Location = new System.Drawing.Point(684, 4);
             this.btnFazerPedido.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnFazerPedido.Name = "btnFazerPedido";
             this.btnFazerPedido.Size = new System.Drawing.Size(107, 26);
@@ -244,7 +244,7 @@
             this.lblTipoDoce.Location = new System.Drawing.Point(44, 0);
             this.lblTipoDoce.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoDoce.Name = "lblTipoDoce";
-            this.lblTipoDoce.Size = new System.Drawing.Size(78, 15);
+            this.lblTipoDoce.Size = new System.Drawing.Size(79, 15);
             this.lblTipoDoce.TabIndex = 35;
             this.lblTipoDoce.Text = "Tipo de doce:";
             // 
@@ -672,7 +672,7 @@
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.51402F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.485981F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
             this.tableLayoutPanel7.Controls.Add(this.btnBuscarPedidos, 2, 1);
             this.tableLayoutPanel7.Controls.Add(this.txtBuscarPedidos, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.lblBuscarPedidos, 0, 0);
@@ -704,7 +704,7 @@
             this.txtBuscarPedidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.txtBuscarPedidos.Location = new System.Drawing.Point(3, 26);
             this.txtBuscarPedidos.Name = "txtBuscarPedidos";
-            this.txtBuscarPedidos.Size = new System.Drawing.Size(597, 16);
+            this.txtBuscarPedidos.Size = new System.Drawing.Size(595, 16);
             this.txtBuscarPedidos.TabIndex = 5;
             // 
             // lblBuscarPedidos
@@ -723,12 +723,12 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excluirPedidosToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(110, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(109, 26);
             // 
             // excluirPedidosToolStripMenuItem
             // 
             this.excluirPedidosToolStripMenuItem.Name = "excluirPedidosToolStripMenuItem";
-            this.excluirPedidosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.excluirPedidosToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.excluirPedidosToolStripMenuItem.Text = "Excluir";
             // 
             // FormPedido

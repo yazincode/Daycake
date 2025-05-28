@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Status));
             this.tabStatusPedido = new System.Windows.Forms.TabPage();
             this.tblPanelBase = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.mtbDataEntrega = new System.Windows.Forms.MaskedTextBox();
-            this.mtbDataPedido = new System.Windows.Forms.MaskedTextBox();
-            this.lblDataPedido = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.cbxStatus = new System.Windows.Forms.ComboBox();
-            this.lblDataEntrega = new System.Windows.Forms.Label();
-            this.lblFiltre = new System.Windows.Forms.Label();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.lstFiltro = new System.Windows.Forms.ListView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.lblFiltre = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDataEntrega = new System.Windows.Forms.Label();
+            this.cbxStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblDataPedido = new System.Windows.Forms.Label();
+            this.mtbDataPedido = new System.Windows.Forms.MaskedTextBox();
+            this.mtbDataEntrega = new System.Windows.Forms.MaskedTextBox();
             this.tabControlStatus = new System.Windows.Forms.TabControl();
             this.tabStatusPedido.SuspendLayout();
             this.tblPanelBase.SuspendLayout();
@@ -81,6 +81,18 @@
             this.tblPanelBase.Size = new System.Drawing.Size(802, 425);
             this.tblPanelBase.TabIndex = 4;
             // 
+            // lstFiltro
+            // 
+            this.lstFiltro.BackColor = System.Drawing.Color.White;
+            this.lstFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.lstFiltro.HideSelection = false;
+            this.lstFiltro.Location = new System.Drawing.Point(33, 127);
+            this.lstFiltro.Name = "lstFiltro";
+            this.lstFiltro.Size = new System.Drawing.Size(736, 257);
+            this.lstFiltro.TabIndex = 1;
+            this.lstFiltro.UseCompatibleStateImageBehavior = false;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -98,6 +110,35 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 109);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
+            this.btnFiltrar.Location = new System.Drawing.Point(3, 86);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(730, 20);
+            this.btnFiltrar.TabIndex = 36;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // lblFiltre
+            // 
+            this.lblFiltre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFiltre.AutoSize = true;
+            this.lblFiltre.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.lblFiltre.Location = new System.Drawing.Point(4, 0);
+            this.lblFiltre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltre.Name = "lblFiltre";
+            this.lblFiltre.Size = new System.Drawing.Size(728, 16);
+            this.lblFiltre.TabIndex = 35;
+            this.lblFiltre.Text = "Filtre aqui o pedido:";
+            this.lblFiltre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -122,33 +163,24 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(730, 45);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // mtbDataEntrega
+            // lblDataEntrega
             // 
-            this.mtbDataEntrega.Location = new System.Drawing.Point(238, 23);
-            this.mtbDataEntrega.Mask = "00/00/0000";
-            this.mtbDataEntrega.Name = "mtbDataEntrega";
-            this.mtbDataEntrega.Size = new System.Drawing.Size(228, 20);
-            this.mtbDataEntrega.TabIndex = 17;
-            this.mtbDataEntrega.ValidatingType = typeof(System.DateTime);
+            this.lblDataEntrega.AutoSize = true;
+            this.lblDataEntrega.ForeColor = System.Drawing.Color.Black;
+            this.lblDataEntrega.Location = new System.Drawing.Point(238, 0);
+            this.lblDataEntrega.Name = "lblDataEntrega";
+            this.lblDataEntrega.Size = new System.Drawing.Size(87, 13);
+            this.lblDataEntrega.TabIndex = 15;
+            this.lblDataEntrega.Text = "Data do entrega:";
             // 
-            // mtbDataPedido
+            // cbxStatus
             // 
-            this.mtbDataPedido.Location = new System.Drawing.Point(3, 23);
-            this.mtbDataPedido.Mask = "00/00/0000";
-            this.mtbDataPedido.Name = "mtbDataPedido";
-            this.mtbDataPedido.Size = new System.Drawing.Size(229, 20);
-            this.mtbDataPedido.TabIndex = 16;
-            this.mtbDataPedido.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblDataPedido
-            // 
-            this.lblDataPedido.AutoSize = true;
-            this.lblDataPedido.ForeColor = System.Drawing.Color.Black;
-            this.lblDataPedido.Location = new System.Drawing.Point(3, 0);
-            this.lblDataPedido.Name = "lblDataPedido";
-            this.lblDataPedido.Size = new System.Drawing.Size(83, 13);
-            this.lblDataPedido.TabIndex = 9;
-            this.lblDataPedido.Text = "Data do pedido:";
+            this.cbxStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxStatus.FormattingEnabled = true;
+            this.cbxStatus.Location = new System.Drawing.Point(472, 23);
+            this.cbxStatus.Name = "cbxStatus";
+            this.cbxStatus.Size = new System.Drawing.Size(255, 21);
+            this.cbxStatus.TabIndex = 14;
             // 
             // lblStatus
             // 
@@ -160,65 +192,33 @@
             this.lblStatus.TabIndex = 10;
             this.lblStatus.Text = "Status:";
             // 
-            // cbxStatus
+            // lblDataPedido
             // 
-            this.cbxStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbxStatus.FormattingEnabled = true;
-            this.cbxStatus.Location = new System.Drawing.Point(472, 23);
-            this.cbxStatus.Name = "cbxStatus";
-            this.cbxStatus.Size = new System.Drawing.Size(255, 21);
-            this.cbxStatus.TabIndex = 14;
+            this.lblDataPedido.AutoSize = true;
+            this.lblDataPedido.ForeColor = System.Drawing.Color.Black;
+            this.lblDataPedido.Location = new System.Drawing.Point(3, 0);
+            this.lblDataPedido.Name = "lblDataPedido";
+            this.lblDataPedido.Size = new System.Drawing.Size(83, 13);
+            this.lblDataPedido.TabIndex = 9;
+            this.lblDataPedido.Text = "Data do pedido:";
             // 
-            // lblDataEntrega
+            // mtbDataPedido
             // 
-            this.lblDataEntrega.AutoSize = true;
-            this.lblDataEntrega.ForeColor = System.Drawing.Color.Black;
-            this.lblDataEntrega.Location = new System.Drawing.Point(238, 0);
-            this.lblDataEntrega.Name = "lblDataEntrega";
-            this.lblDataEntrega.Size = new System.Drawing.Size(87, 13);
-            this.lblDataEntrega.TabIndex = 15;
-            this.lblDataEntrega.Text = "Data do entrega:";
+            this.mtbDataPedido.Location = new System.Drawing.Point(3, 23);
+            this.mtbDataPedido.Mask = "00/00/0000";
+            this.mtbDataPedido.Name = "mtbDataPedido";
+            this.mtbDataPedido.Size = new System.Drawing.Size(229, 20);
+            this.mtbDataPedido.TabIndex = 16;
+            this.mtbDataPedido.ValidatingType = typeof(System.DateTime);
             // 
-            // lblFiltre
+            // mtbDataEntrega
             // 
-            this.lblFiltre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFiltre.AutoSize = true;
-            this.lblFiltre.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.lblFiltre.Location = new System.Drawing.Point(4, 0);
-            this.lblFiltre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFiltre.Name = "lblFiltre";
-            this.lblFiltre.Size = new System.Drawing.Size(728, 16);
-            this.lblFiltre.TabIndex = 35;
-            this.lblFiltre.Text = "Filtre aqui o pedido:";
-            this.lblFiltre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltrar.Location = new System.Drawing.Point(3, 86);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(730, 20);
-            this.btnFiltrar.TabIndex = 36;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            // 
-            // lstFiltro
-            // 
-            this.lstFiltro.BackColor = System.Drawing.Color.White;
-            this.lstFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.lstFiltro.HideSelection = false;
-            this.lstFiltro.Location = new System.Drawing.Point(33, 127);
-            this.lstFiltro.Name = "lstFiltro";
-            this.lstFiltro.Size = new System.Drawing.Size(736, 257);
-            this.lstFiltro.TabIndex = 1;
-            this.lstFiltro.UseCompatibleStateImageBehavior = false;
+            this.mtbDataEntrega.Location = new System.Drawing.Point(238, 23);
+            this.mtbDataEntrega.Mask = "00/00/0000";
+            this.mtbDataEntrega.Name = "mtbDataEntrega";
+            this.mtbDataEntrega.Size = new System.Drawing.Size(228, 20);
+            this.mtbDataEntrega.TabIndex = 17;
+            this.mtbDataEntrega.ValidatingType = typeof(System.DateTime);
             // 
             // tabControlStatus
             // 
